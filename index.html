@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBT Asesmen Sumatif Akhir Semester (SAS) - MTs Terpadu Al Ishlah Gorontalo</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0d9488;
+            --primary-dark: #0f766e;
+            --primary-light: #ccfbf1;
+            --secondary: #d97706;
+            --secondary-light: #fef3c7;
+            --accent: #111827;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --success: #10b981;
+            --info: #3b82f6;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-quran: 'Amiri', serif;
+            --font-size-base: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .font-amiri {
+            font-family: var(--font-quran);
+            direction: rtl;
+            font-size: 1.5rem;
+            line-height: 2.2;
+        }
+
+        /* Utility Classes */
+        .hidden { display: none !important; }
+        .text-center { text-align: center; }
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .gap-2 { gap: 0.5rem; }
+        .gap-4 { gap: 1rem; }
+
+        /* Header Bar */
+        .cbt-header {
+            background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .cbt-header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .brand-logo .logo-placeholder {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid #fbbf24;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #fbbf24;
+        }
+
+        .brand-text h1 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-text p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        /* Container & Cards */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            width: 100%;
+            flex: 1;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Login Portal & Rules */
+        .portal-wrapper {
+            max-width: 550px;
+            margin: 2rem auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+            color: var(--text);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #b45309;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            background: var(--bg);
+        }
+
+        .btn-warning {
+            background: var(--warning);
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 1rem;
+        }
+
+        .modal-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            max-width: 650px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        /* CBT Main Layout */
+        .cbt-layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 900px) {
+            .cbt-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Timer & Status Bar */
+        .status-bar {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timer-badge {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            font-weight: 800;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid #fde68a;
+        }
+
+        .timer-warning {
+            background: #fee2e2;
+            color: #991b1b;
+            border-color: #fca5a5;
+            animation: pulse 1s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { opacity: 1; }
+            to { opacity: 0.7; }
+        }
+
+        .violation-badge {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 0.4rem 0.8rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* Question Box */
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .q-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge-primary { background: var(--primary-light); color: var(--primary-dark); }
+        .badge-secondary { background: var(--secondary-light); color: #92400e; }
+        .badge-info { background: #dbeafe; color: #1e40af; }
+
+        .font-sizer {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: var(--bg);
+            padding: 0.25rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+        }
+
+        .font-sizer button {
+            border: none;
+            background: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .font-sizer button.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .q-stimulus {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--primary);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: var(--font-size-base);
+            line-height: 1.7;
+        }
+
+        .q-text {
+            font-size: calc(var(--font-size-base) * 1.05);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #0f172a;
+        }
+
+        /* Answer Options Styles */
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1rem;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.2s;
+            background: white;
+        }
+
+        .option-item:hover {
+            border-color: var(--primary);
+            background: #f0fdf4;
+        }
+
+        .option-item.selected {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .option-item input[type="radio"],
+        .option-item input[type="checkbox"] {
+            margin-top: 0.25rem;
+            accent-color: var(--primary);
+            width: 18px;
+            height: 18px;
+        }
+
+        .option-label {
+            font-weight: 700;
+            min-width: 24px;
+            color: var(--primary-dark);
+        }
+
+        .option-content {
+            flex: 1;
+            font-size: var(--font-size-base);
+        }
+
+        /* True / False Table */
+        .tf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .tf-table th, .tf-table td {
+            padding: 0.75rem 1rem;
+            border: 1.5px solid var(--border);
+            text-align: left;
+        }
+
+        .tf-table th {
+            background: #f1f5f9;
+            font-weight: 700;
+        }
+
+        .tf-table td.center {
+            text-align: center;
+            width: 90px;
+        }
+
+        .tf-table input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+
+        /* Matching Interactive Grid */
+        .matching-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .matching-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .matching-card {
+            background: white;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+        }
+
+        .matching-card h4 {
+            font-size: 0.9rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            border-bottom: 1px dashed var(--border);
+            padding-bottom: 0.25rem;
+        }
+
+        .matching-select {
+            width: 100%;
+            padding: 0.6rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            margin-top: 0.5rem;
+            font-family: inherit;
+        }
+
+        /* CBT Navigation Bar */
+        .cbt-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            gap: 0.5rem;
+        }
+
+        .btn-doubt {
+            background: #fef08a;
+            color: #854d0e;
+            border: 1.5px solid #fde047;
+            width: auto;
+            padding: 0.75rem 1.25rem;
+        }
+
+        .btn-doubt.active {
+            background: #ca8a04;
+            color: white;
+            border-color: #a16207;
+        }
+
+        /* Number Drawer Grid */
+        .drawer-header {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .num-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.5rem;
+        }
+
+        .num-btn {
+            aspect-ratio: 1;
+            border-radius: var(--radius-sm);
+            border: 1.5px solid var(--border);
+            background: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.2s;
+        }
+
+        .num-btn:hover {
+            border-color: var(--primary);
+        }
+
+        .num-btn.active {
+            border-color: var(--accent);
+            outline: 2.5px solid var(--accent);
+            z-index: 2;
+        }
+
+        .num-btn.answered {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary-dark);
+        }
+
+        .num-btn.doubt {
+            background: var(--warning);
+            color: white;
+            border-color: #d97706;
+        }
+
+        .legend-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .legend-box {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+        }
+
+        /* Report & Certificate Styles */
+        .report-header {
+            text-align: center;
+            border-bottom: 3px double #0f766e;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .report-header h2 {
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+        }
+
+        .report-header p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .score-card {
+            background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .score-number {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1;
+            margin: 0.5rem 0;
+            color: #fbbf24;
+        }
+
+        /* Teacher Panel Table */
+        .admin-table-wrapper {
+            overflow-x: auto;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .admin-table th, .admin-table td {
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+
+        .admin-table th {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        /* Print Media Styles */
+        @media print {
+            body { background: white; color: black; }
+            .cbt-header, .cbt-nav, .btn, .no-print, .font-sizer { display: none !important; }
+            .container { max-width: 100%; padding: 0; }
+            .card { border: none; box-shadow: none; padding: 0; }
+            .report-card { border: 2px solid #000; padding: 20px; border-radius: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Header Bar -->
+    <header class="cbt-header">
+        <div class="cbt-header-inner">
+            <div class="brand-logo">
+                <div class="logo-placeholder"><i class="fa-solid fa-kaaba"></i></div>
+                <div class="brand-text">
+                    <h1>MTs TERPADU AL ISHLAH GORONTALO</h1>
+                    <p>CBT Asesmen Sumatif Akhir Semester (SAS) • Matematika Kelas VII</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button class="btn btn-outline no-print" style="color:white; border-color:rgba(255,255,255,0.4);" onclick="openTeacherLogin()">
+                    <i class="fa-solid fa-user-shield"></i> Panel Pengawas
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- STEP 1: PORTAL LOGIN SISWA -->
+        <section id="sec-login" class="portal-wrapper">
+            <div class="card">
+                <div class="text-center" style="margin-bottom: 1.5rem;">
+                    <h2 style="color: var(--primary-dark); font-size: 1.4rem;">PORTAL ASESMEN SAS</h2>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Silakan masukkan data peserta dan token ujian secara valid.</p>
+                </div>
+
+                <form id="form-login" onsubmit="event.preventDefault(); processLogin();">
+                    <div class="form-group">
+                        <label for="input-nama"><i class="fa-solid fa-user"></i> Nama Lengkap Siswa</label>
+                        <input type="text" id="input-nama" class="form-control" placeholder="Contoh: Muhammad Rayhan" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-nisn"><i class="fa-solid fa-id-card"></i> NISN / Nomor Peserta</label>
+                        <input type="text" id="input-nisn" class="form-control" placeholder="Contoh: 0098765432" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-kelas"><i class="fa-solid fa-school"></i> Rombongan Belajar / Kelas</label>
+                        <select id="input-kelas" class="form-control" required>
+                            <option value="">-- Pilih Kelas --</option>
+                            <option value="VII A (Tahfizh)">VII A (Tahfizh)</option>
+                            <option value="VII B (Sains)">VII B (Sains)</option>
+                            <option value="VII C (Reguler)">VII C (Reguler)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-token"><i class="fa-solid fa-key"></i> Token Ujian (Default: ISLAH26)</label>
+                        <input type="text" id="input-token" class="form-control" placeholder="Masukkan 6 Digit Token" style="text-transform: uppercase; font-weight:700; letter-spacing:2px;" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">
+                        <i class="fa-solid fa-right-to-bracket"></i> Verifikasi & Masuk Ujian
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- MODAL DOA & PAKTA INTEGRITAS -->
+        <div id="modal-rules" class="modal-overlay hidden">
+            <div class="modal-card">
+                <div class="text-center" style="margin-bottom: 1.25rem;">
+                    <span class="badge badge-primary">Persiapan Asesmen</span>
+                    <h3 style="margin-top:0.5rem; color: var(--primary-dark);">Doa & Pakta Integritas SAS</h3>
+                </div>
+
+                <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 1rem; border-radius: var(--radius-md); text-align: center; margin-bottom: 1.25rem;">
+                    <p class="font-amiri">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+                    <p class="font-amiri">رَبِّ زِدْنِي عِلْمًا وَارْزُقْنِي فَهْمًا</p>
+                    <p style="font-size: 0.85rem; font-style: italic; color: #166534; margin-top: 0.4rem;">
+                        "Ya Allah, tambahkanlah aku ilmu dan berikanlah aku rezeki pemahaman yang baik."
+                    </p>
+                </div>
+
+                <div style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--primary-dark); margin-bottom: 0.5rem;"><i class="fa-solid fa-shield-halved"></i> Peraturan & Pakta Kejujuran:</h4>
+                    <ul style="padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li>Durasi pengerjaan adalah <strong>90 Menit</strong> (25 Soal).</li>
+                        <li>Dilarang membuka tab lain, browser lain, atau keluar dari aplikasi CBT. Setiap tindakan ini terekam sebagai <strong>Pelanggaran Anti-Cheat</strong>.</li>
+                        <li>Sistem menggunakan <strong>Auto-Save Realtime</strong>. Jawaban tersimpan otomatis secara berkala.</li>
+                        <li>Jawablah secara mandiri, jujur, dan senantiasa mengharap ridho Allah SWT.</li>
+                    </ul>
+                </div>
+
+                <div class="flex gap-4">
+                    <button class="btn btn-outline" onclick="closeModalRules()">Batal</button>
+                    <button class="btn btn-primary" onclick="startExamSession()">
+                        <i class="fa-solid fa-circle-play"></i> Saya Siap & Mulai Ujian
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 2: WORKSPACE UJIAN CBT -->
+        <section id="sec-exam" class="hidden">
+            
+            <!-- Status & Timer Bar -->
+            <div class="status-bar">
+                <div>
+                    <span style="font-size: 0.85rem; color: var(--text-muted); display: block;">Peserta Aktif:</span>
+                    <strong id="display-student-name" style="color: var(--primary-dark); font-size: 1.05rem;">-</strong> 
+                    <span id="display-student-class" style="font-size: 0.85rem;" class="badge badge-info">VII</span>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div id="violation-container" class="violation-badge">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Pelanggaran: <span id="violation-count">0</span>
+                    </div>
+
+                    <div id="timer-box" class="timer-badge">
+                        <i class="fa-solid fa-stopwatch"></i> <span id="timer-display">90:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cbt-layout">
+                <!-- Main Question Area -->
+                <div class="card" style="margin-bottom:0;">
+                    <div class="q-header">
+                        <div class="q-meta">
+                            <span class="badge badge-primary">Soal No. <span id="q-number-display">1</span> / 25</span>
+                            <span id="q-type-badge" class="badge badge-secondary">Pilihan Ganda</span>
+                            <span class="badge badge-info">Bobot: <span id="q-weight-display">4</span> Poin</span>
+                        </div>
+
+                        <!-- Text Sizer -->
+                        <div class="font-sizer">
+                            <button onclick="setFontSize('sm')" title="Ukuran Kecil">A-</button>
+                            <button id="btn-font-md" class="active" onclick="setFontSize('md')" title="Ukuran Normal">A</button>
+                            <button onclick="setFontSize('lg')" title="Ukuran Besar">A+</button>
+                        </div>
+                    </div>
+
+                    <!-- Stimulus Box -->
+                    <div id="q-stimulus-box" class="q-stimulus hidden"></div>
+
+                    <!-- Question Text -->
+                    <div id="q-text-box" class="q-text">Loading Soal...</div>
+
+                    <!-- Interactive Options Render Container -->
+                    <div id="q-options-container"></div>
+
+                    <!-- Bottom Nav Controls -->
+                    <div class="cbt-nav">
+                        <button id="btn-prev" class="btn btn-outline" style="width:auto;" onclick="navigateQuestion(-1)">
+                            <i class="fa-solid fa-chevron-left"></i> Sebelumnya
+                        </button>
+
+                        <button id="btn-doubt" class="btn btn-doubt" onclick="toggleDoubtState()">
+                            <i class="fa-solid fa-flag"></i> Ragu-Ragu
+                        </button>
+
+                        <button id="btn-next" class="btn btn-primary" style="width:auto;" onclick="navigateQuestion(1)">
+                            Berikutnya <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar / Drawer Grid -->
+                <div class="card" style="margin-bottom:0; height: fit-content;">
+                    <div class="drawer-header">
+                        <span><i class="fa-solid fa-grip"></i> Navigasi Soal</span>
+                        <span style="font-size:0.8rem; font-weight:normal; color:var(--text-muted);" id="progress-text">0/25 Terjawab</span>
+                    </div>
+
+                    <div id="number-grid" class="num-grid">
+                        <!-- Rendered by JS -->
+                    </div>
+
+                    <div class="legend-grid">
+                        <div class="legend-item"><div class="legend-box" style="background:var(--primary);"></div> Dijawab</div>
+                        <div class="legend-item"><div class="legend-box" style="background:var(--warning);"></div> Ragu-Ragu</div>
+                        <div class="legend-item"><div class="legend-box" style="background:white; border:1px solid var(--border);"></div> Belum</div>
+                        <div class="legend-item"><div class="legend-box" style="background:white; outline:2px solid var(--accent);"></div> Aktif</div>
+                    </div>
+
+                    <button class="btn btn-danger" style="margin-top: 1.5rem;" onclick="confirmFinishExam()">
+                        <i class="fa-solid fa-paper-plane"></i> Selesai & Kirim Ujian
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 3: HASIL & REKAPITULASI BUKTI SAS -->
+        <section id="sec-result" class="hidden">
+            <div class="card report-card">
+                <div class="report-header">
+                    <h2>MTs TERPADU AL ISHLAH GORONTALO</h2>
+                    <p>KARTU HASIL ASESMEN SUMATIF AKHIR SEMESTER (SAS) • TA 2025/2026</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; font-size: 0.95rem;">
+                    <div>
+                        <p><strong>Nama Peserta:</strong> <span id="res-name">-</span></p>
+                        <p><strong>NISN / No. Ujian:</strong> <span id="res-nisn">-</span></p>
+                        <p><strong>Kelas:</strong> <span id="res-class">-</span></p>
+                    </div>
+                    <div>
+                        <p><strong>Mata Pelajaran:</strong> Matematika VII</p>
+                        <p><strong>Waktu Selesai:</strong> <span id="res-time">-</span></p>
+                        <p><strong>Catatan Pelanggaran:</strong> <span id="res-violations" style="color:var(--danger); font-weight:700;">0 kali</span></p>
+                    </div>
+                </div>
+
+                <div class="score-card">
+                    <p style="text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">Nilai Akhir Asesmen (Skala 0-100)</p>
+                    <div id="res-score" class="score-number">0</div>
+                    <p id="res-predicate" style="font-weight: 700; font-size: 1.1rem; color: #fef08a;">Predikat: -</p>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color:var(--primary-dark); margin-bottom: 0.5rem;"><i class="fa-solid fa-chart-pie"></i> Rincian Capaian Per Level:</h4>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center;">
+                        <div style="background:var(--bg); padding:1rem; border-radius:var(--radius-md); border:1px solid var(--border);">
+                            <span style="font-size:0.8rem; color:var(--text-muted);">Level 1 (Pemahaman)</span>
+                            <h3 id="res-l1-score" style="color:var(--primary-dark);">0/40</h3>
+                        </div>
+                        <div style="background:var(--bg); padding:1rem; border-radius:var(--radius-md); border:1px solid var(--border);">
+                            <span style="font-size:0.8rem; color:var(--text-muted);">Level 2 (Aplikasi)</span>
+                            <h3 id="res-l2-score" style="color:var(--primary-dark);">0/40</h3>
+                        </div>
+                        <div style="background:var(--bg); padding:1rem; border-radius:var(--radius-md); border:1px solid var(--border);">
+                            <span style="font-size:0.8rem; color:var(--text-muted);">Level 3 (Penalaran HOTS)</span>
+                            <h3 id="res-l3-score" style="color:var(--primary-dark);">0/20</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 no-print">
+                    <button class="btn btn-outline" onclick="window.print()">
+                        <i class="fa-solid fa-print"></i> Cetak / Unduh Kartu SAS (PDF)
+                    </button>
+                    <button class="btn btn-primary" onclick="sendWebhookResult()">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Kirim Nilai ke Server Guru
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 4: PANEL PENGAWAS / GURU (TERPROTEKSI PIN) -->
+        <section id="sec-teacher" class="hidden">
+            <div class="card">
+                <div class="flex justify-between items-center" style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">
+                    <div>
+                        <h2 style="color: var(--primary-dark);"><i class="fa-solid fa-user-shield"></i> Panel Pengawas & Guru Mata Pelajaran</h2>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Kelola rekapitulasi hasil SAS dan kunci jawaban.</p>
+                    </div>
+                    <button class="btn btn-outline" style="width:auto;" onclick="showPortalSection()">
+                        <i class="fa-solid fa-arrow-left"></i> Kembali ke Portal
+                    </button>
+                </div>
+
+                <div class="flex gap-4" style="margin-bottom: 1.5rem;">
+                    <button class="btn btn-secondary" style="width:auto;" onclick="exportResultsCSV()">
+                        <i class="fa-solid fa-file-excel"></i> Unduh Rekap Nilai (CSV/Excel)
+                    </button>
+                    <button class="btn btn-outline" style="width:auto;" onclick="toggleAnswerKeys()">
+                        <i class="fa-solid fa-key"></i> <span id="btn-key-text">Tampilkan Kunci & Pembahasan</span>
+                    </button>
+                    <button class="btn btn-danger" style="width:auto;" onclick="resetAllData()">
+                        <i class="fa-solid fa-trash"></i> Reset Seluruh Session LocalStorage
+                    </button>
+                </div>
+
+                <!-- Webhook Config Area -->
+                <div style="background:var(--bg); padding: 1rem; border-radius: var(--radius-md); border:1px solid var(--border); margin-bottom: 1.5rem;">
+                    <h4 style="font-size:0.9rem; color:var(--primary-dark); margin-bottom:0.4rem;"><i class="fa-solid fa-link"></i> Konfigurasi Webhook Google Sheets (Optional):</h4>
+                    <div class="flex gap-2">
+                        <input type="text" id="input-webhook-url" class="form-control" placeholder="https://script.google.com/macros/s/.../exec">
+                        <button class="btn btn-primary" style="width:auto;" onclick="saveWebhookURL()">Simpan URL</button>
+                    </div>
+                    <p style="font-size:0.75rem; color:var(--text-muted); margin-top:0.4rem;">
+                        *Masukkan URL Webhook AppScript untuk otomatis mentransfer hasil nilai peserta ke Google Spreadsheet milik Guru.
+                    </p>
+                </div>
+
+                <!-- Table Rekapitulasi Siswa -->
+                <h3 style="font-size: 1.1rem; color: var(--primary-dark); margin-bottom: 0.75rem;">Rekapitulasi Hasil Ujian Perangkat Ini</h3>
+                <div class="admin-table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Peserta</th>
+                                <th>NISN</th>
+                                <th>Kelas</th>
+                                <th>Skor SAS</th>
+                                <th>Pelanggaran</th>
+                                <th>Waktu Selesai</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teacher-table-body">
+                            <tr>
+                                <td colspan="7" class="text-center" style="color:var(--text-muted);">Belum ada data ujian tersimpan di perangkat ini.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Container Answer Key Display -->
+                <div id="answer-key-container" class="hidden" style="margin-top: 2rem; border-top:2px dashed var(--border); padding-top:1.5rem;">
+                    <h3 style="color:var(--primary-dark); margin-bottom:1rem;"><i class="fa-solid fa-book-open"></i> Kunci Jawaban & Pembahasan Lengkap 25 Soal</h3>
+                    <div id="key-list-content"></div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- MODAL CONFIRMATION FINISH -->
+    <div id="modal-confirm" class="modal-overlay hidden">
+        <div class="modal-card" style="max-width: 480px;">
+            <h3 style="color: var(--primary-dark); margin-bottom: 0.75rem;"><i class="fa-solid fa-circle-question"></i> Konfirmasi Selesai Ujian</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 1rem;">Apakah Anda yakin ingin menyelesaikan dan mengirim lembar jawaban SAS ini?</p>
+
+            <div style="background: var(--bg); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; font-size: 0.9rem;">
+                <p><strong>Total Soal:</strong> 25 Butir</p>
+                <p><strong style="color: var(--primary-dark);">Sudah Dijawab:</strong> <span id="confirm-answered">0</span> Soal</p>
+                <p><strong style="color: var(--warning);">Ragu-Ragu:</strong> <span id="confirm-doubt">0</span> Soal</p>
+                <p><strong style="color: var(--danger);">Belum Dijawab:</strong> <span id="confirm-unanswered">0</span> Soal</p>
+            </div>
+
+            <div class="flex gap-4">
+                <button class="btn btn-outline" onclick="closeModalConfirm()">Batal & Periksa Lagi</button>
+                <button class="btn btn-primary" onclick="submitFinalExam()">Ya, Selesai & Kirim</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL ANTI-CHEAT WARNING -->
+    <div id="modal-cheat" class="modal-overlay hidden">
+        <div class="modal-card text-center" style="max-width: 450px; border-top: 6px solid var(--danger);">
+            <i class="fa-solid fa-triangle-exclamation" style="font-size: 3.5rem; color: var(--danger); margin-bottom: 1rem;"></i>
+            <h3 style="color: var(--danger); margin-bottom: 0.5rem;">PERINGATAN PELANGGARAN!</h3>
+            <p style="font-size: 0.9rem; color: var(--text); margin-bottom: 1.25rem;">
+                Sistem mengidentifikasi Anda meninggalkan halaman/tab ujian. Tindakan ini dicatat sebagai pelanggaran ke dalam sistem CBT SAS.
+            </p>
+            <div style="background: #fee2e2; color: #991b1b; padding: 0.75rem; border-radius: var(--radius-md); font-weight: 700; margin-bottom: 1.5rem;">
+                Total Pelanggaran: <span id="cheat-modal-count">1</span> Kali
+            </div>
+            <button class="btn btn-danger" onclick="closeCheatModal()">Saya Mengerti & Kembali Ujian</button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC ENGINE -->
+    <script>
+        /* ==========================================================================
+           1. DATABASE BANK SOAL SAS (25 SOAL TERLENGKAP BESERTA KUNCI & PEMBAHASAN)
+           ========================================================================== */
+        const QUESTION_BANK = [
+            // --- PG (15 SOAL - BOBOT 4) ---
+            {
+                id: 1,
+                type: "pg",
+                level: 1,
+                weight: 4,
+                stimulus: "Suhu udara pagi hari di kawasan dataran tinggi Suwawa Gorontalo tercatat -2°C. Menjelang siang hari, suhu udara mengalami kenaikan sebesar 15°C.",
+                question: "Berapakah suhu udara di kawasan Suwawa Gorontalo pada siang hari tersebut?",
+                options: ["-17°C", "-13°C", "13°C", "17°C"],
+                answer: "C",
+                explanation: "Perhitungan penjumlahan bilangan bulat: -2 + 15 = 13°C."
+            },
+            {
+                id: 2,
+                type: "pg",
+                level: 1,
+                weight: 4,
+                stimulus: "Di kantin MTs Terpadu Al Ishlah, harga 1 kemasan kue cara isi adalah Rp2.500. Ahmad membeli 4 kemasan kue cara isi dan membayarnya dengan satu lembar uang kertas Rp20.000.",
+                question: "Berapakah uang kembalian yang harus diterima oleh Ahmad?",
+                options: ["Rp10.000", "Rp12.500", "Rp15.000", "Rp17.500"],
+                answer: "A",
+                explanation: "Total belanja = 4 × 2.500 = Rp10.000. Uang kembalian = 20.000 - 10.000 = Rp10.000."
+            },
+            {
+                id: 3,
+                type: "pg",
+                level: 1,
+                weight: 4,
+                stimulus: "Seorang nelayan di pesisir Leato Gorontalo meletakkan jangkar kapal pada kedalaman 8 meter di bawah permukaan laut (-8 m). Beberapa saat kemudian, ia menarik jangkar tersebut naik setinggi 5 meter.",
+                question: "Berada pada posisi manakah jangkar kapal tersebut sekarang terhadap permukaan laut?",
+                options: ["-13 meter", "-3 meter", "3 meter", "13 meter"],
+                answer: "B",
+                explanation: "Posisi awal = -8 m. Ditarik naik (+5 m) -> -8 + 5 = -3 meter (3 meter di bawah permukaan laut)."
+            },
+            {
+                id: 4,
+                type: "pg",
+                level: 1,
+                weight: 4,
+                stimulus: "Diberikan empat buah bilangan bulat sebagai berikut: -18, -25, 12, dan -5.",
+                question: "Urutan bilangan bulat tersebut dari yang nilainya terkecil hingga terbesar adalah...",
+                options: ["-25, -18, -5, 12", "-18, -25, -5, 12", "12, -5, -18, -25", "-5, -18, -25, 12"],
+                answer: "A",
+                explanation: "Makin ke kiri pada garis bilangan nilainya makin kecil: -25 < -18 < -5 < 12."
+            },
+            {
+                id: 5,
+                type: "pg",
+                level: 1,
+                weight: 4,
+                stimulus: "Ibu Fatimah membuat kue bolu khas Gorontalo untuk acara pengajian. Ia memotong kue bolu tersebut menjadi 12 bagian yang sama besar. Sebanyak 3 bagian diberikan kepada tetangganya.",
+                question: "Bentuk pecahan sederhana yang menyatakan bagian kue bolu yang diberikan kepada tetangga adalah...",
+                options: ["1/2", "1/3", "1/4", "3/8"],
+                answer: "C",
+                explanation: "Bagian kue = 3/12. Menyederhanakan pecahan dengan membagi pembilang dan penyebut dengan FPB (3): (3÷3)/(12÷3) = 1/4."
+            },
+            {
+                id: 6,
+                type: "pg",
+                level: 1,
+                weight: 4,
+                stimulus: "Dalam suatu resep es kelapa muda gula merah, diperlukan 3/5 kg gula merah. Ibu memiliki persediaan gula merah sebanyak 7/10 kg di dapur.",
+                question: "Berapa sisa gula merah milik ibu setelah digunakan untuk membuat es kelapa muda tersebut?",
+                options: ["1/10 kg", "2/10 kg", "1/5 kg", "4/10 kg"],
+                answer: "A",
+                explanation: "Pengurangan pecahan: 7/10 - 3/5 = 7/10 - 6/10 = 1/10 kg."
+            },
+            {
+                id: 7,
+                type: "pg",
+                level: 2,
+                weight: 4,
+                stimulus: "Dalam sebuah kegiatan bakti sosial JSIT Gorontalo, kelompok santri mengumpulkan 2 1/2 kg beras dari santri A dan 1 3/4 kg beras dari santri B.",
+                question: "Berapakah total berat beras campuran yang berhasil dikumpulkan oleh kelompok tersebut?",
+                options: ["3 3/4 kg", "4 1/4 kg", "4 1/2 kg", "4 3/4 kg"],
+                answer: "B",
+                explanation: "2 1/2 + 1 3/4 = 5/2 + 7/4 = 10/4 + 7/4 = 17/4 = 4 1/4 kg."
+            },
+            {
+                id: 8,
+                type: "pg",
+                level: 2,
+                weight: 4,
+                stimulus: "Pak Mansyur mempunyai sebidang tanah kebun kelapa berbentuk persegi panjang dengan panjang (4 + √3) meter dan lebar (4 - √3) meter.",
+                question: "Berapakah luas tanah kebun kelapa milik Pak Mansyur tersebut dalam meter persegi?",
+                options: ["13 m²", "16 m²", "19 m²", "13 + 8√3 m²"],
+                answer: "A",
+                explanation: "Luas = Panjang × Lebar = (4 + √3)(4 - √3) = 4² - (√3)² = 16 - 3 = 13 m²."
+            },
+            {
+                id: 9,
+                type: "pg",
+                level: 2,
+                weight: 4,
+                stimulus: "Di antara bilangan-bilangan berikut: (i) 0,75 ; (ii) √5 ; (iii) 22/7 ; (iv) π (pi).",
+                question: "Manakah yang merupakan kelompok bilangan irasional?",
+                options: ["(i) dan (iii)", "(ii) dan (iv)", "(i) dan (ii)", "(iii) dan (iv)"],
+                answer: "B",
+                explanation: "Bilangan irasional adalah bilangan yang tidak dapat dinyatakan dalam bentuk a/b. √5 dan π adalah contoh bilangan irasional."
+            },
+            {
+                id: 10,
+                type: "pg",
+                level: 2,
+                weight: 4,
+                stimulus: "Bentuk sederhana dari bentuk akar √72 adalah...",
+                question: "Bentuk paling sederhana dari √72 adalah...",
+                options: ["3√8", "6√2", "2√18", "12√2"],
+                answer: "B",
+                explanation: "√72 = √(36 × 2) = √36 × √2 = 6√2."
+            },
+            {
+                id: 11,
+                type: "pg",
+                level: 2,
+                weight: 4,
+                stimulus: "Hasil dari operasi penjumlahan dan pengurangan bentuk akar sejenis: 5√3 + 2√3 - 4√3 adalah...",
+                question: "Hasil sederhana dari 5√3 + 2√3 - 4√3 adalah...",
+                options: ["3√3", "4√3", "3√9", "7√3"],
+                answer: "A",
+                explanation: "(5 + 2 - 4)√3 = 3√3."
+            },
+            {
+                id: 12,
+                type: "pg",
+                level: 2,
+                weight: 4,
+                stimulus: "Nilai pendekatan dari √10 berada di antara dua bilangan bulat berurutan yaitu...",
+                question: "Manakah dua bilangan bulat yang menjepit nilai √10?",
+                options: ["2 dan 3", "3 dan 4", "4 dan 5", "9 dan 16"],
+                answer: "B",
+                explanation: "Karena 9 < 10 < 16, maka √9 < √10 < √16, sehingga 3 < √10 < 4."
+            },
+            {
+                id: 13,
+                type: "pg",
+                level: 3,
+                weight: 4,
+                stimulus: "Sebuah akuarium di laboratorium sains MTs Terpadu Al Ishlah berbentuk kubus memiliki volume 125 liter. (Catatan: 1 liter = 1 dm³).",
+                question: "Panjang rusuk bagian dalam akuarium tersebut adalah...",
+                options: ["5 dm", "15 dm", "25 dm", "50 dm"],
+                answer: "A",
+                explanation: "Volume = s³ = 125 -> s = ∛125 = 5 dm."
+            },
+            {
+                id: 14,
+                type: "pg",
+                level: 3,
+                weight: 4,
+                stimulus: "Hasil perkalian dari bentuk akar √6 × √8 adalah...",
+                question: "Bentuk sederhana dari √6 × √8 adalah...",
+                options: ["4√3", "4√6", "2√12", "48"],
+                answer: "A",
+                explanation: "√6 × √8 = √48 = √(16 × 3) = 4√3."
+            },
+            {
+                id: 15,
+                type: "pg",
+                level: 3,
+                weight: 4,
+                stimulus: "Operasi hitung campuran: (-12) + 15 : (-3) - 4 × (-2) menghasilkan nilai...",
+                question: "Hasil akhir dari operasi campuran tersebut adalah...",
+                options: ["-9", "-1", "1", "9"],
+                answer: "A",
+                explanation: "Kerjakan pembagian & perkalian dulu: (-12) + (15 / -3) - (4 * -2) = (-12) + (-5) - (-8) = -17 + 8 = -9."
+            },
+
+            // --- PG KOMPLEKS (5 SOAL - BOBOT 5) ---
+            {
+                id: 16,
+                type: "pgk",
+                level: 2,
+                weight: 5,
+                stimulus: "Pernyataan seputar operasi bilangan bulat negatif dan positif.",
+                question: "Pilihlah DUA atau LEBIH pernyataan yang BENAR di bawah ini:",
+                options: [
+                    "Hasil penjumlahan dua bilangan bulat negatif selalu bernilai negatif.",
+                    "Hasil perkalian dua bilangan bulat negatif bernilai negatif.",
+                    "Nilai dari -8 lebih besar daripada -3.",
+                    "Selisih antara suhu 5°C dan -2°C adalah 7°C."
+                ],
+                answer: [0, 3],
+                explanation: "Pernyataan 1 benar (negatif+negatif = negatif). Pernyataan 4 benar (5 - (-2) = 7). Pernyataan 2 salah (perkalian dua negatif = positif). Pernyataan 3 salah (-8 < -3)."
+            },
+            {
+                id: 17,
+                type: "pgk",
+                level: 2,
+                weight: 5,
+                stimulus: "Karakteristik dan perbandingan bentuk pecahan.",
+                question: "Manakah di antara pernyataan pecahan berikut yang BENAR? (Pilih semua yang sesuai)",
+                options: [
+                    "Pecahan 2/5 senilai dengan 4/10.",
+                    "Pecahan 3/4 lebih kecil daripada 2/3.",
+                    "Bentuk desimal dari 1/4 adalah 0,25.",
+                    "Bentuk persen dari 4/5 adalah 80%."
+                ],
+                answer: [0, 2, 3],
+                explanation: "2/5 = 4/10 (Benar). 3/4 = 0,75 > 2/3 = 0,66 (Salah). 1/4 = 0,25 (Benar). 4/5 = 80% (Benar)."
+            },
+            {
+                id: 18,
+                type: "pgk",
+                level: 3,
+                weight: 5,
+                stimulus: "Konsep Bilangan Rasional dan Irasional.",
+                question: "Pilihlah bilangan-bilangan yang termasuk ke dalam himpunan BILANGAN RASIONAL:",
+                options: [
+                    "0,333...",
+                    "√16",
+                    "√7",
+                    "-5/8"
+                ],
+                answer: [0, 1, 3],
+                explanation: "0,333... = 1/3 (Rasional). √16 = 4 (Rasional). -5/8 (Rasional). √7 adalah irasional karena bukan bentuk kuadrat sempurna."
+            },
+            {
+                id: 19,
+                type: "pgk",
+                level: 3,
+                weight: 5,
+                stimulus: "Penyederhanaan dan Operasi Bentuk Akar.",
+                question: "Pilihlah persamaan penyederhanaan bentuk akar yang BENAR berikut ini:",
+                options: [
+                    "√50 = 5√2",
+                    "√27 = 3√3",
+                    "√20 + √45 = 5√5",
+                    "3√2 + 4√2 = 7√2"
+                ],
+                answer: [0, 1, 2, 3],
+                explanation: "√50 = 5√2 (Benar). √27 = 3√3 (Benar). √20 + √45 = 2√5 + 3√5 = 5√5 (Benar). 3√2 + 4√2 = 7√2 (Benar)."
+            },
+            {
+                id: 20,
+                type: "pgk",
+                level: 3,
+                weight: 5,
+                stimulus: "Penerapan kontekstual matematika di lingkungan MTs Terpadu Al Ishlah.",
+                question: "Pernyataan kontekstual mana yang bernilai BENAR? (Pilih lebih dari satu)",
+                options: [
+                    "Ketinggian 15 m di atas permukaan laut ditulis +15, sedangkan kedalaman 5 m di bawah laut ditulis -5.",
+                    "Membeli 3 roti seharga Rp2.000/buah dapat dibayar pas dengan 1 lembar uang Rp5.000.",
+                    "Suhu udara turun 4°C dari suhu awal 28°C menghasilkan suhu akhir 24°C.",
+                    "Membagi 1/2 bagian kue secara adil kepada 2 orang santri membuat tiap santri menerima 1/4 bagian."
+                ],
+                answer: [0, 2, 3],
+                explanation: "Pernyataan 1, 3, dan 4 bernilai benar secara matematis dan kontekstual."
+            },
+
+            // --- BENAR / SALAH (3 SOAL - BOBOT 3) ---
+            {
+                id: 21,
+                type: "tf",
+                level: 1,
+                weight: 3,
+                stimulus: "Evaluasi kebenaran pernyataan seputar operasi dasar bilangan bulat.",
+                question: "Tentukan kebenaran dari masing-masing pernyataan berikut:",
+                statements: [
+                    "Hasil dari (-15) + 8 adalah -7.",
+                    "Nilai absolut dari |-10| adalah -10.",
+                    "Perkalian bilangan negatif dengan bilangan positif menghasilkan bilangan negatif."
+                ],
+                answer: ["B", "S", "B"],
+                explanation: "Pernyataan 1: -15 + 8 = -7 (Benar). Pernyataan 2: |-10| = 10 (Salah). Pernyataan 3: (-) x (+) = (-) (Benar)."
+            },
+            {
+                id: 22,
+                type: "tf",
+                level: 2,
+                weight: 3,
+                stimulus: "Evaluasi kebenaran pernyataan pecahan dan desimal.",
+                question: "Tentukan kebenaran dari masing-masing pernyataan pecahan berikut:",
+                statements: [
+                    "Pecahan 3/5 ekuivalen dengan 60%.",
+                    "Hasil dari 1/2 × 2/3 adalah 1/3.",
+                    "Pecahan 5/6 lebih kecil dari 4/5."
+                ],
+                answer: ["B", "B", "S"],
+                explanation: "3/5 = 0,60 = 60% (Benar). 1/2 x 2/3 = 2/6 = 1/3 (Benar). 5/6 = 0,833 > 4/5 = 0,80 (Salah)."
+            },
+            {
+                id: 23,
+                type: "tf",
+                level: 3,
+                weight: 3,
+                stimulus: "Evaluasi kebenaran konsep bentuk akar dan irasional.",
+                question: "Tentukan kebenaran dari pernyataan bentuk akar berikut:",
+                statements: [
+                    "√18 dapat disederhanakan menjadi 3√2.",
+                    "√3 + √5 = √8.",
+                    "Bentuk rasional dari 2/√2 adalah √2."
+                ],
+                answer: ["B", "S", "B"],
+                explanation: "√18 = √(9x2) = 3√2 (Benar). Penjumlahan akar tak sejenis tidak bisa digabung (Salah). 2/√2 x √2/√2 = 2√2/2 = √2 (Benar)."
+            },
+
+            // --- MENJODOHKAN (2 SOAL - BOBOT 3) ---
+            {
+                id: 24,
+                type: "matching",
+                level: 2,
+                weight: 3,
+                stimulus: "Jodohkanlah bentuk akar berikut dengan bentuk penyederhanaannya yang tepat!",
+                question: "Pasangkan premis di sebelah kiri dengan respon yang sesuai di sebelah kanan:",
+                pairs: [
+                    { premis: "√12", options: ["2√3", "4√2", "5√3"], correct: "2√3" },
+                    { premis: "√32", options: ["2√3", "4√2", "5√3"], correct: "4√2" },
+                    { premis: "√75", options: ["2√3", "4√2", "5√3"], correct: "5√3" }
+                ],
+                explanation: "√12 = √(4x3) = 2√3. √32 = √(16x2) = 4√2. √75 = √(25x3) = 5√3."
+            },
+            {
+                id: 25,
+                type: "matching",
+                level: 3,
+                weight: 3,
+                stimulus: "Jodohkanlah operasi hitung berikut dengan hasil akhirnya yang paling sesuai!",
+                question: "Pasangkan soal operasi hitung dengan jawaban yang pas:",
+                pairs: [
+                    { premis: "(-4) × 6 + 10", options: ["-14", "16", "2/5"], correct: "-14" },
+                    { premis: "20 - (-4) : 2", options: ["-14", "22", "16"], correct: "22" },
+                    { premis: "1/5 + 1/5", options: ["2/5", "2/10", "1/10"], correct: "2/5" }
+                ],
+                explanation: "(-4x6)+10 = -24+10 = -14. 20 - (-4/2) = 20 - (-2) = 22. 1/5 + 1/5 = 2/5."
+            }
+        ];
+
+        /* ==========================================================================
+           2. STATE MANAGEMENT & SYSTEM VARIABLES
+           ========================================================================== */
+        let currentStudent = { name: "", nisn: "", classGroup: "" };
+        let currentQuestionIndex = 0;
+        let studentAnswers = {}; // Format: { qId: answerValue }
+        let doubtStatus = {}; // Format: { qId: true/false }
+        let timerSeconds = 90 * 60; // 90 Menit
+        let timerInterval = null;
+        let violationCount = 0;
+        let webhookUrl = localStorage.getItem("cbt_webhook_url") || "";
+
+        /* ==========================================================================
+           3. INITIALIZATION & ROUTING
+           ========================================================================== */
+        window.addEventListener("DOMContentLoaded", () => {
+            loadSavedState();
+            setupAntiCheat();
+        });
+
+        function showSection(secId) {
+            ["sec-login", "sec-exam", "sec-result", "sec-teacher"].forEach(id => {
+                document.getElementById(id).classList.add("hidden");
+            });
+            document.getElementById(secId).classList.remove("hidden");
+        }
+
+        /* ==========================================================================
+           4. LOGIN & RULES MODAL HANDLERS
+           ========================================================================== */
+        function processLogin() {
+            const name = document.getElementById("input-nama").value.trim();
+            const nisn = document.getElementById("input-nisn").value.trim();
+            const cls = document.getElementById("input-kelas").value;
+            const token = document.getElementById("input-token").value.trim().toUpperCase();
+
+            if (!name || !nisn || !cls) {
+                alert("Harap lengkapi seluruh data identitas peserta!");
+                return;
+            }
+
+            if (token !== "ISLAH26") {
+                alert("Token Ujian Salah! Harap masukkan token resmi: ISLAH26");
+                return;
+            }
+
+            currentStudent = { name, nisn, classGroup: cls };
+            document.getElementById("modal-rules").classList.remove("hidden");
+        }
+
+        function closeModalRules() {
+            document.getElementById("modal-rules").classList.add("hidden");
+        }
+
+        function startExamSession() {
+            closeModalRules();
+            showSection("sec-exam");
+
+            // Update Header Display
+            document.getElementById("display-student-name").textContent = currentStudent.name;
+            document.getElementById("display-student-class").textContent = currentStudent.classGroup;
+
+            // Trigger Fullscreen Mode
+            try {
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                }
+            } catch (e) {
+                console.log("Fullscreen request denied or unallowed.");
+            }
+
+            renderDrawerGrid();
+            loadQuestion(0);
+            startTimer();
+        }
+
+        /* ==========================================================================
+           5. TIMER & ANTI-CHEAT ENGINE
+           ========================================================================== */
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+
+            timerInterval = setInterval(() => {
+                if (timerSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    alert("Waktu Ujian Telah Habis! Sistem akan mengumpulkan jawaban Anda secara otomatis.");
+                    submitFinalExam();
+                    return;
+                }
+
+                timerSeconds--;
+                saveStateToLocalStorage();
+
+                // Format Display
+                const m = Math.floor(timerSeconds / 60);
+                const s = timerSeconds % 60;
+                const displayStr = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+                
+                const timerEl = document.getElementById("timer-display");
+                timerEl.textContent = displayStr;
+
+                // Warning color under 10 minutes
+                if (timerSeconds <= 600) {
+                    document.getElementById("timer-box").classList.add("timer-warning");
+                }
+            }, 1000);
+        }
+
+        function setupAntiCheat() {
+            document.addEventListener("visibilitychange", () => {
+                if (document.hidden && !document.getElementById("sec-exam").classList.contains("hidden")) {
+                    registerViolation();
+                }
+            });
+
+            window.addEventListener("blur", () => {
+                if (!document.getElementById("sec-exam").classList.contains("hidden")) {
+                    registerViolation();
+                }
+            });
+        }
+
+        function registerViolation() {
+            violationCount++;
+            document.getElementById("violation-count").textContent = violationCount;
+            document.getElementById("cheat-modal-count").textContent = violationCount;
+            document.getElementById("modal-cheat").classList.remove("hidden");
+            saveStateToLocalStorage();
+        }
+
+        function closeCheatModal() {
+            document.getElementById("modal-cheat").classList.add("hidden");
+        }
+
+        /* ==========================================================================
+           6. QUESTION RENDER & INTERACTION ENGINE
+           ========================================================================== */
+        function loadQuestion(idx) {
+            currentQuestionIndex = idx;
+            const q = QUESTION_BANK[idx];
+
+            // Render Badges & Meta
+            document.getElementById("q-number-display").textContent = idx + 1;
+            document.getElementById("q-weight-display").textContent = q.weight;
+
+            const typeBadge = document.getElementById("q-type-badge");
+            if (q.type === "pg") typeBadge.textContent = "Pilihan Ganda";
+            else if (q.type === "pgk") typeBadge.textContent = "PG Kompleks";
+            else if (q.type === "tf") typeBadge.textContent = "Benar / Salah";
+            else if (q.type === "matching") typeBadge.textContent = "Menjodohkan";
+
+            // Render Stimulus Box
+            const stimBox = document.getElementById("q-stimulus-box");
+            if (q.stimulus) {
+                stimBox.classList.remove("hidden");
+                stimBox.innerHTML = `<strong><i class="fa-solid fa-file-lines"></i> Stimulus / Konteks Soal:</strong><br>${q.stimulus}`;
+            } else {
+                stimBox.classList.add("hidden");
+            }
+
+            // Render Question Text
+            document.getElementById("q-text-box").textContent = q.question;
+
+            // Render Interactive Answer Box
+            const container = document.getElementById("q-options-container");
+            container.innerHTML = "";
+
+            const currentAns = studentAnswers[q.id];
+
+            if (q.type === "pg") {
+                const list = document.createElement("div");
+                list.className = "options-list";
+
+                const labels = ["A", "B", "C", "D"];
+                q.options.forEach((optText, oIdx) => {
+                    const labelChar = labels[oIdx];
+                    const isSelected = currentAns === labelChar;
+
+                    const item = document.createElement("div");
+                    item.className = `option-item ${isSelected ? 'selected' : ''}`;
+                    item.onclick = () => selectRadioOption(q.id, labelChar);
+
+                    item.innerHTML = `
+                        <input type="radio" name="opt-${q.id}" ${isSelected ? 'checked' : ''}>
+                        <span class="option-label">${labelChar}.</span>
+                        <span class="option-content">${optText}</span>
+                    `;
+                    list.appendChild(item);
+                });
+                container.appendChild(list);
+            } 
+            else if (q.type === "pgk") {
+                const list = document.createElement("div");
+                list.className = "options-list";
+
+                const selectedArr = Array.isArray(currentAns) ? currentAns : [];
+
+                q.options.forEach((optText, oIdx) => {
+                    const isChecked = selectedArr.includes(oIdx);
+
+                    const item = document.createElement("div");
+                    item.className = `option-item ${isChecked ? 'selected' : ''}`;
+                    item.onclick = (e) => {
+                        if(e.target.tagName !== 'INPUT') {
+                            toggleCheckboxOption(q.id, oIdx);
+                        }
+                    };
+
+                    item.innerHTML = `
+                        <input type="checkbox" onchange="toggleCheckboxOption(${q.id}, ${oIdx})" ${isChecked ? 'checked' : ''}>
+                        <span class="option-content">${optText}</span>
+                    `;
+                    list.appendChild(item);
+                });
+                container.appendChild(list);
+            }
+            else if (q.type === "tf") {
+                const tfAns = currentAns || {};
+
+                let html = `
+                    <table class="tf-table">
+                        <thead>
+                            <tr>
+                                <th>Pernyataan Evaluasi</th>
+                                <th class="center">Benar</th>
+                                <th class="center">Salah</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+
+                q.statements.forEach((stmt, sIdx) => {
+                    const val = tfAns[sIdx];
+                    html += `
+                        <tr>
+                            <td>${stmt}</td>
+                            <td class="center">
+                                <input type="radio" name="tf-${q.id}-${sIdx}" value="B" ${val === 'B' ? 'checked' : ''} onchange="setTFAnswer(${q.id}, ${sIdx}, 'B')">
+                            </td>
+                            <td class="center">
+                                <input type="radio" name="tf-${q.id}-${sIdx}" value="S" ${val === 'S' ? 'checked' : ''} onchange="setTFAnswer(${q.id}, ${sIdx}, 'S')">
+                            </td>
+                        </tr>
+                    `;
+                });
+
+                html += `</tbody></table>`;
+                container.innerHTML = html;
+            }
+            else if (q.type === "matching") {
+                const matchAns = currentAns || {};
+
+                let gridHtml = `<div class="matching-grid">`;
+                q.pairs.forEach((pair, pIdx) => {
+                    const selectedVal = matchAns[pIdx] || "";
+                    gridHtml += `
+                        <div class="matching-card">
+                            <h4>Premis #${pIdx + 1}: ${pair.premis}</h4>
+                            <label style="font-size:0.8rem; color:var(--text-muted);">Pilih Pasangan Respon:</label>
+                            <select class="matching-select" onchange="setMatchingAnswer(${q.id}, ${pIdx}, this.value)">
+                                <option value="">-- Pilih Jawab Pasangan --</option>
+                                ${pair.options.map(opt => `<option value="${opt}" ${selectedVal === opt ? 'selected' : ''}>${opt}</option>`).join('')}
+                            </select>
+                        </div>
+                    `;
+                });
+                gridHtml += `</div>`;
+                container.innerHTML = gridHtml;
+            }
+
+            // Update Doubt Button UI
+            const doubtBtn = document.getElementById("btn-doubt");
+            if (doubtStatus[q.id]) {
+                doubtBtn.classList.add("active");
+            } else {
+                doubtBtn.classList.remove("active");
+            }
+
+            // Update Nav Prev/Next Buttons
+            document.getElementById("btn-prev").disabled = (idx === 0);
+            
+            const nextBtn = document.getElementById("btn-next");
+            if (idx === QUESTION_BANK.length - 1) {
+                nextBtn.innerHTML = `Selesai <i class="fa-solid fa-check-double"></i>`;
+                nextBtn.className = "btn btn-secondary";
+            } else {
+                nextBtn.innerHTML = `Berikutnya <i class="fa-solid fa-chevron-right"></i>`;
+                nextBtn.className = "btn btn-primary";
+            }
+
+            updateDrawerButtonState();
+        }
+
+        /* --- ANSWER SAVING LOGIC --- */
+        function selectRadioOption(qId, labelChar) {
+            studentAnswers[qId] = labelChar;
+            saveStateToLocalStorage();
+            loadQuestion(currentQuestionIndex);
+        }
+
+        function toggleCheckboxOption(qId, oIdx) {
+            let current = studentAnswers[qId] || [];
+            if (!Array.isArray(current)) current = [];
+
+            if (current.includes(oIdx)) {
+                current = current.filter(i => i !== oIdx);
+            } else {
+                current.push(oIdx);
+            }
+            studentAnswers[qId] = current;
+            saveStateToLocalStorage();
+            loadQuestion(currentQuestionIndex);
+        }
+
+        function setTFAnswer(qId, sIdx, val) {
+            if (!studentAnswers[qId]) studentAnswers[qId] = {};
+            studentAnswers[qId][sIdx] = val;
+            saveStateToLocalStorage();
+            updateDrawerButtonState();
+        }
+
+        function setMatchingAnswer(qId, pIdx, val) {
+            if (!studentAnswers[qId]) studentAnswers[qId] = {};
+            studentAnswers[qId][pIdx] = val;
+            saveStateToLocalStorage();
+            updateDrawerButtonState();
+        }
+
+        function toggleDoubtState() {
+            const qId = QUESTION_BANK[currentQuestionIndex].id;
+            doubtStatus[qId] = !doubtStatus[qId];
+            saveStateToLocalStorage();
+            loadQuestion(currentQuestionIndex);
+        }
+
+        function navigateQuestion(direction) {
+            const newIdx = currentQuestionIndex + direction;
+            if (newIdx >= 0 && newIdx < QUESTION_BANK.length) {
+                loadQuestion(newIdx);
+            } else if (newIdx >= QUESTION_BANK.length) {
+                confirmFinishExam();
+            }
+        }
+
+        /* ==========================================================================
+           7. DRAWER GRID & NAVIGATION HELPERS
+           ========================================================================== */
+        function renderDrawerGrid() {
+            const grid = document.getElementById("number-grid");
+            grid.innerHTML = "";
+
+            QUESTION_BANK.forEach((q, idx) => {
+                const btn = document.createElement("button");
+                btn.className = "num-btn";
+                btn.id = `num-btn-${idx}`;
+                btn.textContent = idx + 1;
+                btn.onclick = () => loadQuestion(idx);
+                grid.appendChild(btn);
+            });
+            updateDrawerButtonState();
+        }
+
+        function updateDrawerButtonState() {
+            let answeredCount = 0;
+
+            QUESTION_BANK.forEach((q, idx) => {
+                const btn = document.getElementById(`num-btn-${idx}`);
+                if (!btn) return;
+
+                btn.className = "num-btn";
+
+                if (idx === currentQuestionIndex) {
+                    btn.classList.add("active");
+                }
+
+                const ans = studentAnswers[q.id];
+                let isAnswered = false;
+
+                if (q.type === "pg" && ans) isAnswered = true;
+                else if (q.type === "pgk" && Array.isArray(ans) && ans.length > 0) isAnswered = true;
+                else if (q.type === "tf" && ans && Object.keys(ans).length === q.statements.length) isAnswered = true;
+                else if (q.type === "matching" && ans && Object.keys(ans).length === q.pairs.length) isAnswered = true;
+
+                if (isAnswered) {
+                    answeredCount++;
+                    btn.classList.add("answered");
+                }
+
+                if (doubtStatus[q.id]) {
+                    btn.classList.remove("answered");
+                    btn.classList.add("doubt");
+                }
+            });
+
+            document.getElementById("progress-text").textContent = `${answeredCount}/25 Terjawab`;
+        }
+
+        function setFontSize(size) {
+            const root = document.documentElement;
+            if (size === 'sm') root.style.setProperty('--font-size-base', '0.9rem');
+            else if (size === 'md') root.style.setProperty('--font-size-base', '1rem');
+            else if (size === 'lg') root.style.setProperty('--font-size-base', '1.15rem');
+        }
+
+        /* ==========================================================================
+           8. AUTO-SAVE & LOCALSTORAGE
+           ========================================================================== */
+        function saveStateToLocalStorage() {
+            const state = {
+                currentStudent,
+                studentAnswers,
+                doubtStatus,
+                timerSeconds,
+                violationCount,
+                currentQuestionIndex
+            };
+            localStorage.setItem("cbt_sas_state", JSON.stringify(state));
+        }
+
+        function loadSavedState() {
+            const saved = localStorage.getItem("cbt_sas_state");
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    currentStudent = parsed.currentStudent || { name: "", nisn: "", classGroup: "" };
+                    studentAnswers = parsed.studentAnswers || {};
+                    doubtStatus = parsed.doubtStatus || {};
+                    timerSeconds = parsed.timerSeconds || 90 * 60;
+                    violationCount = parsed.violationCount || 0;
+                    currentQuestionIndex = parsed.currentQuestionIndex || 0;
+                } catch(e) {
+                    console.log("Error parsing saved state.");
+                }
+            }
+        }
+
+        /* ==========================================================================
+           9. SCORING & FINAL ASSESSMENT REPORT
+           ========================================================================== */
+        function confirmFinishExam() {
+            let answered = 0;
+            let doubt = 0;
+
+            QUESTION_BANK.forEach(q => {
+                const ans = studentAnswers[q.id];
+                if (q.type === "pg" && ans) answered++;
+                else if (q.type === "pgk" && Array.isArray(ans) && ans.length > 0) answered++;
+                else if (q.type === "tf" && ans && Object.keys(ans).length === q.statements.length) answered++;
+                else if (q.type === "matching" && ans && Object.keys(ans).length === q.pairs.length) answered++;
+
+                if (doubtStatus[q.id]) doubt++;
+            });
+
+            document.getElementById("confirm-answered").textContent = answered;
+            document.getElementById("confirm-doubt").textContent = doubt;
+            document.getElementById("confirm-unanswered").textContent = QUESTION_BANK.length - answered;
+
+            document.getElementById("modal-confirm").classList.remove("hidden");
+        }
+
+        function closeModalConfirm() {
+            document.getElementById("modal-confirm").classList.add("hidden");
+        }
+
+        function submitFinalExam() {
+            closeModalConfirm();
+            if (timerInterval) clearInterval(timerInterval);
+
+            let totalScorePoin = 0;
+            let l1Score = 0, l2Score = 0, l3Score = 0;
+
+            // Calculate Scores
+            QUESTION_BANK.forEach(q => {
+                const ans = studentAnswers[q.id];
+                let isCorrect = false;
+
+                if (q.type === "pg") {
+                    if (ans === q.answer) isCorrect = true;
+                } 
+                else if (q.type === "pgk") {
+                    if (Array.isArray(ans)) {
+                        const sortedUser = [...ans].sort().join(',');
+                        const sortedKey = [...q.answer].sort().join(',');
+                        if (sortedUser === sortedKey) isCorrect = true;
+                    }
+                }
+                else if (q.type === "tf") {
+                    if (ans) {
+                        let allMatched = true;
+                        q.answer.forEach((keyVal, sIdx) => {
+                            if (ans[sIdx] !== keyVal) allMatched = false;
+                        });
+                        if (allMatched) isCorrect = true;
+                    }
+                }
+                else if (q.type === "matching") {
+                    if (ans) {
+                        let allMatched = true;
+                        q.pairs.forEach((pair, pIdx) => {
+                            if (ans[pIdx] !== pair.correct) allMatched = false;
+                        });
+                        if (allMatched) isCorrect = true;
+                    }
+                }
+
+                if (isCorrect) {
+                    totalScorePoin += q.weight;
+                    if (q.level === 1) l1Score += q.weight;
+                    else if (q.level === 2) l2Score += q.weight;
+                    else if (q.level === 3) l3Score += q.weight;
+                }
+            });
+
+            const finalScore = totalScorePoin;
+
+            let predicate = "D (Perlu Bimbingan)";
+            if (finalScore >= 90) predicate = "A (Sangat Baik / Mumtaz)";
+            else if (finalScore >= 80) predicate = "B (Baik / Jayyid)";
+            else if (finalScore >= 70) predicate = "C (Cukup / Maqbul)";
+
+            // Update Report UI
+            document.getElementById("res-name").textContent = currentStudent.name;
+            document.getElementById("res-nisn").textContent = currentStudent.nisn;
+            document.getElementById("res-class").textContent = currentStudent.classGroup;
+            document.getElementById("res-time").textContent = new Date().toLocaleString('id-ID');
+            document.getElementById("res-violations").textContent = `${violationCount} Kali`;
+            document.getElementById("res-score").textContent = finalScore;
+            document.getElementById("res-predicate").textContent = `Predikat: ${predicate}`;
+
+            document.getElementById("res-l1-score").textContent = `${l1Score} Poin`;
+            document.getElementById("res-l2-score").textContent = `${l2Score} Poin`;
+            document.getElementById("res-l3-score").textContent = `${l3Score} Poin`;
+
+            // Save Result Record to Local Storage History
+            saveHistoryRecord(finalScore);
+
+            showSection("sec-result");
+        }
+
+        function saveHistoryRecord(score) {
+            let history = JSON.parse(localStorage.getItem("cbt_sas_history") || "[]");
+            history.push({
+                name: currentStudent.name,
+                nisn: currentStudent.nisn,
+                classGroup: currentStudent.classGroup,
+                score: score,
+                violations: violationCount,
+                timestamp: new Date().toLocaleString('id-ID')
+            });
+            localStorage.setItem("cbt_sas_history", JSON.stringify(history));
+        }
+
+        /* ==========================================================================
+           10. TEACHER / SUPERVISOR PANEL (PIN PROTECTED)
+           ========================================================================== */
+        function openTeacherLogin() {
+            const pin = prompt("Masukkan PIN Pengawas / Guru (Default: 1234):");
+            if (pin === "1234") {
+                renderTeacherTable();
+                showSection("sec-teacher");
+            } else if (pin !== null) {
+                alert("PIN Salah! Akses ditolak.");
+            }
+        }
+
+        function renderTeacherTable() {
+            const history = JSON.parse(localStorage.getItem("cbt_sas_history") || "[]");
+            const tbody = document.getElementById("teacher-table-body");
+            tbody.innerHTML = "";
+
+            if (history.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" class="text-center" style="color:var(--text-muted);">Belum ada data ujian tersimpan di perangkat ini.</td></tr>`;
+                return;
+            }
+
+            history.forEach((rec, idx) => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${idx + 1}</td>
+                    <td><strong>${rec.name}</strong></td>
+                    <td>${rec.nisn}</td>
+                    <td>${rec.classGroup}</td>
+                    <td><strong style="color:var(--primary-dark);">${rec.score}</strong></td>
+                    <td><span style="color:${rec.violations > 0 ? 'var(--danger)' : 'var(--success)'};">${rec.violations}</span></td>
+                    <td>${rec.timestamp}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function exportResultsCSV() {
+            const history = JSON.parse(localStorage.getItem("cbt_sas_history") || "[]");
+            if (history.length === 0) {
+                alert("Tidak ada data untuk diunduh!");
+                return;
+            }
+
+            let csv = "No,Nama Peserta,NISN,Kelas,Skor SAS,Pelanggaran,Waktu Selesai\n";
+            history.forEach((rec, idx) => {
+                csv += `"${idx + 1}","${rec.name}","${rec.nisn}","${rec.classGroup}","${rec.score}","${rec.violations}","${rec.timestamp}"\n`;
+            });
+
+            const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.setAttribute("download", `Rekap_Nilai_SAS_Matematika_${new Date().toISOString().slice(0,10)}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function toggleAnswerKeys() {
+            const container = document.getElementById("answer-key-container");
+            const btnText = document.getElementById("btn-key-text");
+
+            if (container.classList.contains("hidden")) {
+                container.classList.remove("hidden");
+                btnText.textContent = "Sembunyikan Kunci Jawaban";
+                renderAnswerKeyList();
+            } else {
+                container.classList.add("hidden");
+                btnText.textContent = "Tampilkan Kunci & Pembahasan";
+            }
+        }
+
+        function renderAnswerKeyList() {
+            const content = document.getElementById("key-list-content");
+            content.innerHTML = "";
+
+            QUESTION_BANK.forEach((q, idx) => {
+                const card = document.createElement("div");
+                card.style.cssText = "background:var(--bg); border:1px solid var(--border); padding:1rem; border-radius:var(--radius-md); margin-bottom:1rem;";
+                
+                let keyDisplay = "";
+                if (q.type === "pg") keyDisplay = q.answer;
+                else if (q.type === "pgk") keyDisplay = `Opsi index: ${q.answer.join(', ')}`;
+                else if (q.type === "tf") keyDisplay = q.answer.join(', ');
+                else if (q.type === "matching") keyDisplay = q.pairs.map(p => `${p.premis} ➔ ${p.correct}`).join(' | ');
+
+                card.innerHTML = `
+                    <p style="font-weight:700; color:var(--primary-dark);">Soal No. ${idx + 1} (${q.type.toUpperCase()}) - Bobot: ${q.weight}</p>
+                    <p style="margin:0.4rem 0;">${q.question}</p>
+                    <p style="color:var(--success); font-weight:700;">Kunci Jawaban: ${keyDisplay}</p>
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.3rem;"><em>Pembahasan:</em> ${q.explanation}</p>
+                `;
+                content.appendChild(card);
+            });
+        }
+
+        function resetAllData() {
+            if (confirm("Apakah Anda yakin ingin menghapus seluruh data pengerjaan dan rekap nilai di perangkat ini?")) {
+                localStorage.removeItem("cbt_sas_state");
+                localStorage.removeItem("cbt_sas_history");
+                alert("Data berhasil di-reset.");
+                location.reload();
+            }
+        }
+
+        function saveWebhookURL() {
+            const url = document.getElementById("input-webhook-url").value.trim();
+            localStorage.setItem("cbt_webhook_url", url);
+            webhookUrl = url;
+            alert("URL Webhook Google Sheets berhasil disimpan!");
+        }
+
+        function sendWebhookResult() {
+            if (!webhookUrl) {
+                alert("URL Webhook Google Sheets belum diatur oleh Pengawas/Guru. Sila hubungi pengawas!");
+                return;
+            }
+
+            const payload = {
+                nama: currentStudent.name,
+                nisn: currentStudent.nisn,
+                kelas: currentStudent.classGroup,
+                skor: document.getElementById("res-score").textContent,
+                pelanggaran: violationCount,
+                waktu: new Date().toLocaleString('id-ID')
+            };
+
+            fetch(webhookUrl, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            }).then(() => {
+                alert("Hasil nilai berhasil dikirimkan ke Spreadsheet Guru!");
+            }).catch(err => {
+                alert("Gagal mengirim data webhook: " + err);
+            });
+        }
+
+        function showPortalSection() {
+            showSection("sec-login");
+        }
+    </script>
+</body>
+</html>
